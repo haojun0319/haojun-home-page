@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>haojun website</title>
+    <style>
+        .page { display: none; }
+        #home { display: block; }
+    </style>
 </head>
 <body>
-    <h1>Education List</h1>
 
-    <div>
-        <h3>MOC</h3> <ul> <li>English</li>
-            <li>Bahasa Melayu</li>
-            <li>Bahasa Cina</li>
-        </ul>
+    <div id="home" class="page">
+        <h1>Welcome to My Page</h1>
+        <p>这是我的主页内容...</p>
+        <button onclick="showPage('list')">点击查看教育列表</button>
     </div>
+
+    <div id="list" class="page">
+        <h1>Education List</h1>
+        <p>这是我的学历详情...</p>
+        <button onclick="showPage('home')">返回主页</button>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // 隐藏所有 .page
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            // 显示点击的目标
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
